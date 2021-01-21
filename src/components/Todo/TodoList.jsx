@@ -7,12 +7,12 @@ export default function TodoList({ todos, onClick, dispatch }) {
       <h3 className="center">Список Todo</h3>
       <ul>
         {todos.length !== 0 ? (
-          todos.map((elem, index) => (
+          todos.map((item, index) => (
             <TodoItem
-              click={(input) => dispatch({ type: 'remove', todo: { input } })}
-              key={`${elem}_${index}`}
-              todo={elem}
-              index={index}
+              click={(index) => dispatch({ type: 'remove', todo: { index } })}
+              key={`${item}_${index}`}
+              todo={item.todo}
+              index={item.id}
             />
           ))
         ) : (

@@ -5,7 +5,7 @@ export default function TodoItem({ todo, index, click }) {
     <li>
       {index + 1}.{todo}
       <input type="checkbox" />
-      <button onClick={() => click(todo)} type="submit">
+      <button onClick={() => click(index)} type="submit">
         Удалить
       </button>
     </li>

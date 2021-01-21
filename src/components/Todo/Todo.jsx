@@ -2,16 +2,22 @@ import React, { useReducer } from 'react'
 import CreateTodo from './CreateTodo'
 import TodoList from './TodoList'
 export default function Todo() {
-  const initialState = { todos: ['Redux'] }
+  const initialState = {
+    todos: [
+      { id: 0, todo: 'Redux' },
+      { id: 1, todo: 'React' },
+    ],
+  }
   function todosReducer(state, action) {
     switch (action.type) {
       case 'add':
-        return { todos: [...state.todos, action.todo.input] }
+        const newTodo = { id: state.todos.length, todo: action.todo.input }
+        return { todos: [...state.todos, newTodo] }
       case 'remove':
-        console.log(state.todos)
-        console.log(state.todos.indexOf(action.todo.input))
         return {
-          todos: state.todos.filter((item) => item !== action.todo.input),
+          todos: state.todos.filter(
+            (item, index) => index !== action.todo.index
+          ),
         }
       default:
         throw new Error()

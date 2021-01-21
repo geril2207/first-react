@@ -15,9 +15,7 @@ export default function Todo() {
         return { todos: [...state.todos, newTodo] }
       case 'remove':
         return {
-          todos: state.todos.filter(
-            (item, index) => index !== action.todo.index
-          ),
+          todos: state.todos.filter((item) => item.id !== action.todo.index),
         }
       default:
         throw new Error()

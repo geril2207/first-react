@@ -5,12 +5,12 @@ export default function TodoList({ todos, onClick, dispatch }) {
   return (
     <div>
       <h3 className="center">Список Todo</h3>
-      <ul>
+      <ul className="todo__list">
         {todos.length !== 0 ? (
-          todos.map((item, index) => (
+          todos.map((item, i) => (
             <TodoItem
               click={(index) => dispatch({ type: 'remove', todo: { index } })}
-              key={`${item}_${index}`}
+              key={`${item}_${i}`}
               todo={item.todo}
               index={item.id}
             />

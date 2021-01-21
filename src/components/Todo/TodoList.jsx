@@ -9,10 +9,12 @@ export default function TodoList({ todos, onClick, dispatch }) {
         {todos.length !== 0 ? (
           todos.map((item, i) => (
             <TodoItem
-              click={(index) => dispatch({ type: 'remove', todo: { index } })}
+              remove={(index) => dispatch({ type: 'remove', todo: { index } })}
+              complete={(index) => dispatch({ type: 'complete', todo: { index } })}
               key={`${item}_${i}`}
               todo={item.todo}
               index={item.id}
+              completed={item.completed}
             />
           ))
         ) : (

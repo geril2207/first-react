@@ -7,8 +7,12 @@ export default function CreateTodo({ onClick }) {
     setInput(event.target.value)
   }
   const createTodo = (input) => {
-    onClick(input)
-    setInput('')
+    if (input === '') {
+      alert('Введите название Todo')
+    } else {
+      onClick(input)
+      setInput('')
+    }
   }
   return (
     <div className="row">

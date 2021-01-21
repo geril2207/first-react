@@ -1,15 +1,23 @@
 import React from 'react'
-
-export default function TodoItem({ todo, index, click }) {
+import classNames from 'classnames'
+export default function TodoItem({ todo, index, remove, complete, completed }) {
+  console.log(completed)
   return (
-    <li className="todo_item">
-      {index + 1}.{todo}
-      <button className="btn " type="submit">
-        <i className="material-icons">done</i>
-      </button>
-      <button className="btn " onClick={() => click(index)} type="submit">
-        <i className="material-icons">delete_forever</i>
-      </button>
+    <li
+      className={classNames({
+        todo_item: true,
+        complete: completed,
+      })}
+    >
+      {todo}
+      <div className="btns">
+        <button onClick={() => complete(index)} className="btn " type="submit">
+          <i className="material-icons">done</i>
+        </button>
+        <button className="btn " onClick={() => remove(index)} type="submit">
+          <i className="material-icons">delete_forever</i>
+        </button>
+      </div>
     </li>
   )
 }
